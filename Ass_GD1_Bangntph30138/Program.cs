@@ -14,5 +14,7 @@ namespace Ass_GD1_Bangntph30138
             ApplicationConfiguration.Initialize();
             Application.Run(new fLogin());
         }
+        //Scaffold-DbContext 'Data Source=BANGCHIU105\SQLEXPRESS01;Initial Catalog=FPL_DaoTao;Integrated Security=True ;TrustServerCertificate=true' Microsoft.EntityFrameworkCore.SqlServer -OutputDir DomainClass -context DBContext -Contextdir Context -DataAnnotations -Force
+
     }
 }

@@ -50,9 +50,9 @@
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.dtgQuanLySV = new System.Windows.Forms.DataGridView();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pb_img = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgQuanLySV)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_img)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -205,6 +205,7 @@
             this.btnLuu.TabIndex = 15;
             this.btnLuu.Text = "Save";
             this.btnLuu.UseVisualStyleBackColor = false;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnXoa
             // 
@@ -235,23 +236,24 @@
             this.dtgQuanLySV.RowTemplate.Height = 29;
             this.dtgQuanLySV.Size = new System.Drawing.Size(677, 188);
             this.dtgQuanLySV.TabIndex = 18;
+            this.dtgQuanLySV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgQuanLySV_CellContentClick);
             // 
-            // pictureBox1
+            // pb_img
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(465, 84);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(194, 236);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 19;
-            this.pictureBox1.TabStop = false;
+            this.pb_img.Image = ((System.Drawing.Image)(resources.GetObject("pb_img.Image")));
+            this.pb_img.Location = new System.Drawing.Point(465, 84);
+            this.pb_img.Name = "pb_img";
+            this.pb_img.Size = new System.Drawing.Size(194, 236);
+            this.pb_img.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_img.TabIndex = 19;
+            this.pb_img.TabStop = false;
             // 
             // fStudentManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 834);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pb_img);
             this.Controls.Add(this.dtgQuanLySV);
             this.Controls.Add(this.btnSua);
             this.Controls.Add(this.btnXoa);
@@ -275,7 +277,7 @@
             this.Text = "Quản lý sinh viên";
             this.Load += new System.EventHandler(this.fStudentManagement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgQuanLySV)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_img)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -303,6 +305,6 @@
         private Button btnXoa;
         private Button btnSua;
         private DataGridView dtgQuanLySV;
-        private PictureBox pictureBox1;
+        private PictureBox pb_img;
     }
 }
