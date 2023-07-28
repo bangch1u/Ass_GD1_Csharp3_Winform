@@ -30,5 +30,16 @@ namespace Ass_GD1_Bangntph30138.Controler.Service
                 MessageBox.Show("Thêm thất bại!");
             }
         }
+        public void XoaSinhVien(Student obj)
+        {
+            if (_repos.DeleteStudent(obj) == true)
+            {
+                MessageBox.Show("Xoá thành công");
+            }
+            else
+            {
+                MessageBox.Show("Xoá thất bại!");
+            }
+        }
     }
 }

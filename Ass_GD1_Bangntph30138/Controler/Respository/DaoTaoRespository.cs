@@ -43,10 +43,19 @@ namespace Ass_GD1_Bangntph30138.Controler.Respository
                 return true;
             }
         }
-        //public bool DeleteStudent(Student student)
-        //{
+        public bool DeleteStudent(Student student)
+        {
+            if (student == null)
+            {
+                return false;
+            }
+            else
+            {
+                _context.Remove(student);
+                _context.SaveChanges();
+                return true;
+            }
+        }
 
-        //}
-       
     }
 }
