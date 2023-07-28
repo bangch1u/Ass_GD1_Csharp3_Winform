@@ -46,7 +46,7 @@ namespace Ass_GD1_Bangntph30138.View
 
         private void btnNew_Click(object sender, EventArgs e)
         {
-
+            //f
         }
     }
 }
