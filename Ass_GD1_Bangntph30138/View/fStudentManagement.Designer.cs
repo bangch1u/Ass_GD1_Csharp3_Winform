@@ -228,6 +228,7 @@
             this.btnSua.TabIndex = 17;
             this.btnSua.Text = "Update";
             this.btnSua.UseVisualStyleBackColor = false;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // dtgQuanLySV
             // 

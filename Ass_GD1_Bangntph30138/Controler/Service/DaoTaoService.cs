@@ -41,5 +41,16 @@ namespace Ass_GD1_Bangntph30138.Controler.Service
                 MessageBox.Show("Xoá thất bại!");
             }
         }
+        public void CapNhapSinhVien(Student obj)
+        {
+            if (_repos.UpdateStudent(obj) == true)
+            {
+                MessageBox.Show("Cập nhập thành công");
+            }
+            else
+            {
+                MessageBox.Show("Cập nhập thất bại!");
+            }
+        }
     }
 }

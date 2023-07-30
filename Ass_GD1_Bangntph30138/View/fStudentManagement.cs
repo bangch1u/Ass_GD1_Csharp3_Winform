@@ -7,16 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 using Ass_GD1_Bangntph30138.Controler.Respository;
 using Ass_GD1_Bangntph30138.Controler.Service;
 using Ass_GD1_Bangntph30138.DomainClass;
 namespace Ass_GD1_Bangntph30138.View
+ 
 {
     public partial class fStudentManagement : Form
     {
      
         DaoTaoRespository _resDaoTao = new DaoTaoRespository();
         DaoTaoService _serDaoTao = new DaoTaoService();
+        ScoreService _serviceScore = new ScoreService();
+        QLDiemRespository _resSCore = new QLDiemRespository();
         public fStudentManagement()
         {
             InitializeComponent();
@@ -131,6 +135,23 @@ namespace Ass_GD1_Bangntph30138.View
                 MessageBox.Show("Vui lòng chọn giới tính.");
                 return false;
             }
+            //check trùng!
+            var listMaSV = _resDaoTao.GetStudents().ToList();
+            foreach (var item in listMaSV)
+            {
+                if (txtMa.Text == item.MaSv)
+                {
+                    MessageBox.Show("Mã sinh viên đã tồn tại!");
+                    return false;
+
+                }
+            }
+            //check email!
+            string regexEmail = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+            if (!Regex.IsMatch(txtMa.Text.ToString(), regexEmail))
+            {
+                return false;
+            }
             return true;
         }
 
@@ -147,7 +168,32 @@ namespace Ass_GD1_Bangntph30138.View
         private void btnXoa_Click(object sender, EventArgs e)
         {
             var obj = _resDaoTao.GetStudents().FirstOrDefault(sv => sv.MaSv == txtMa.Text);
+            var objScore = _resSCore.GetGrades(null).FirstOrDefault(d => d.MaSv == txtMa.Text);
+            _serviceScore.XoaDiemSV(objScore);
             _serDaoTao.XoaSinhVien(obj);
+            
+            LoadGidSV();
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            var obj = _resDaoTao.GetStudents().FirstOrDefault(sv => sv.MaSv == txtMa.Text);
+            obj.MaSv = txtMa.Text;
+            obj.Hoten = txtTen.Text;
+            obj.MaSv = txtMa.Text;
+            obj.Hoten = txtTen.Text;
+            obj.Email = txtMail.Text;
+            obj.SoDt = txtSDT.Text;
+            if (rdNam.Checked)
+            {
+                obj.GioiTinh = true;
+            }
+            else
+            {
+                obj.GioiTinh = false;
+            }
+            obj.DiaChi = rtbDiaChi.Text;
+            _serDaoTao.CapNhapSinhVien(obj);
             LoadGidSV();
         }
     }

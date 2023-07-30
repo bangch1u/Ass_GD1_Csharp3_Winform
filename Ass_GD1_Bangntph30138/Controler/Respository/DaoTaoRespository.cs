@@ -56,6 +56,19 @@ namespace Ass_GD1_Bangntph30138.Controler.Respository
                 return true;
             }
         }
+        public bool UpdateStudent(Student student)
+        {
+            if (student == null)
+            {
+                return false;
+            }
+            else
+            {
+                _context.Update(student);
+                _context.SaveChanges();
+                return true;
+            }
+        }
 
     }
 }

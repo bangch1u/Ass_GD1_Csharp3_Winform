@@ -37,5 +37,32 @@ namespace Ass_GD1_Bangntph30138.Controler.Respository
                 return true;
             }
         }
+        public bool DeleteScore(Grade grade)
+        {
+            if (grade == null)
+            {
+                return false;
+            }
+            else
+            {
+                _scoreContext.Remove(grade);
+                _scoreContext.SaveChanges();
+                return true;
+            }
+        }
+        public bool UpdateScore(Grade grade)
+        {
+
+            if (grade == null)
+            {
+                return false;
+            }
+            else
+            {
+                _scoreContext.Update(grade);
+                _scoreContext.SaveChanges();
+                return true;
+            }
+        }
     }
 }

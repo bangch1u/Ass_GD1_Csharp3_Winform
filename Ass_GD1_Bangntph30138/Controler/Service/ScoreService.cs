@@ -25,5 +25,27 @@ namespace Ass_GD1_Bangntph30138.Controler.Service
                 MessageBox.Show("Thêm thất bại!");
             }
         }
+        public void XoaDiemSV(Grade obj)
+        {
+            if (_scoreRepos.DeleteScore(obj) == true)
+            {
+                MessageBox.Show("Xóa thành công");
+            }
+            else
+            {
+                MessageBox.Show("Xóa thất bại!");
+            }
+        }
+        public void CapNhapDiemSV(Grade obj)
+        {
+            if (_scoreRepos.UpdateScore(obj) == true)
+            {
+                MessageBox.Show("Cập nhập thành công");
+            }
+            else
+            {
+                MessageBox.Show("Cập nhập thất bại!");
+            }
+        }
     }
 }
