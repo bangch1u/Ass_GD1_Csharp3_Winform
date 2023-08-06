@@ -5,23 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using Ass_GD1_Bangntph30138.Controler.Respository;
 using Ass_GD1_Bangntph30138.DomainClass;
-
 namespace Ass_GD1_Bangntph30138.Controler.Service
 {
-    internal class DaoTaoService
+    internal class ScoreService
     {
-        DaoTaoRespository _repos;
-        public DaoTaoService()
+        QLDiemRespository _scoreRepos;
+        public ScoreService()
         {
-            _repos = new DaoTaoRespository();   
+            _scoreRepos = new QLDiemRespository();
         }
-        public string DangNhap(string user, string pass)
+        public void ThemDiemSV(Grade obj)
         {
-            return _repos.Login(user, pass);
-        }
-        public void ThemSinhVien(Student obj)
-        {
-            if (_repos.AddStuden(obj) == true)
+            if (_scoreRepos.AddScore(obj) == true)
             {
                 MessageBox.Show("Thêm thành công");
             }
@@ -30,20 +25,20 @@ namespace Ass_GD1_Bangntph30138.Controler.Service
                 MessageBox.Show("Thêm thất bại!");
             }
         }
-        public void XoaSinhVien(Student obj)
+        public void XoaDiemSV(Grade obj)
         {
-            if (_repos.DeleteStudent(obj) == true)
+            if (_scoreRepos.DeleteScore(obj) == true)
             {
-                MessageBox.Show("Xoá thành công");
+                MessageBox.Show("Xóa thành công");
             }
             else
             {
-                MessageBox.Show("Xoá thất bại!");
+                MessageBox.Show("Xóa thất bại!");
             }
         }
-        public void CapNhapSinhVien(Student obj)
+        public void CapNhapDiemSV(Grade obj)
         {
-            if (_repos.UpdateStudent(obj) == true)
+            if (_scoreRepos.UpdateScore(obj) == true)
             {
                 MessageBox.Show("Cập nhập thành công");
             }

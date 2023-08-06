@@ -142,7 +142,6 @@
             this.btnSave.TabIndex = 16;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.button3_Click);
             // 
             // btnDelete
             // 
@@ -156,6 +155,7 @@
             this.btnDelete.TabIndex = 17;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnUpdate
             // 
@@ -169,7 +169,7 @@
             this.btnUpdate.TabIndex = 18;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
-            this.btnUpdate.Click += new System.EventHandler(this.button5_Click);
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // label10
             // 
@@ -190,6 +190,7 @@
             this.dtgQuanLyDiemSV.RowTemplate.Height = 29;
             this.dtgQuanLyDiemSV.Size = new System.Drawing.Size(662, 188);
             this.dtgQuanLyDiemSV.TabIndex = 20;
+            this.dtgQuanLyDiemSV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgQuanLyDiemSV_CellContentClick);
             // 
             // groupBox1
             // 
@@ -202,7 +203,6 @@
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tìm kiếm";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // groupBox2
             // 
